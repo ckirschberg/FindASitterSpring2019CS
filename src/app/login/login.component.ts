@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-login', // name of component
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -22,6 +23,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() : void {
+    this.snackBar.open('One second, logging in..', 'Close', {
+      duration: 2000,
+    });
+
     console.log(this.loginForm);
 
     if (this.loginForm.valid) {

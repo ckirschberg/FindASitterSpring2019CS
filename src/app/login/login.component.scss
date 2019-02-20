@@ -1,0 +1,17 @@
+.example-card {
+  max-width: 400px;
+}
+
+mat-card-actions mat-card-subtitle {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+::ng-deep .mat-form-field .mat-form-field-infix {
+  width:  300px !important;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
