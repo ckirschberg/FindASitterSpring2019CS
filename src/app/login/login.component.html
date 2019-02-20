@@ -3,53 +3,53 @@
   <mat-grid-tile [colspan]="2" [rowspan]="1">
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-          <mat-card class="example-card">
-              <mat-card-header>
-                <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title>Login</mat-card-title>
-                <mat-card-subtitle>to find a sitter or baby</mat-card-subtitle>
-              </mat-card-header>
-              <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-              <mat-card-content>
-                
-                <div>
-                  <mat-form-field>
-                    <!-- <p>Username</p> -->
-                    <input matInput placeholder="Username" formControlName="username">
-                    
-                    <mat-error *ngIf="loginForm.controls.username.errors?.required && loginForm.controls.username.touched">
-                      You must fill out the username
-                    </mat-error>
-                    <mat-error *ngIf="loginForm.controls.username.errors?.minlength && loginForm.controls.username.touched">
-                      Username must be at least 3 characters
-                    </mat-error>
-                  </mat-form-field>
-                  <!-- <input type="text" formControlName="username"> -->
-                </div>
+        <mat-card class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Login</mat-card-title>
+            <mat-card-subtitle>to find a sitter or baby</mat-card-subtitle>
+          </mat-card-header>
+          <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+          <mat-card-content>
+            
+          <div>
+            <mat-form-field>
+              <!-- <p>Username</p> -->
+              <input matInput placeholder="Username" formControlName="username">
               
-                <div>
-                  <mat-form-field>
-                    <!-- <p>Password</p> -->
-                    <input matInput placeholder="Password" type="password" formControlName="password">
-                    <mat-error *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.dirty">
-                      You must fill out the password
-                    </mat-error>
-                  </mat-form-field>
-                </div>
-      
-                <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
-        <!-- Dont do this. Disabling a button is ok but only with user feedback! -->
-                  
-              </mat-card-content>
-              <mat-card-actions>
-                <mat-divider></mat-divider>
+              <mat-error *ngIf="loginForm.controls.username.errors?.required && loginForm.controls.username.touched">
+                You must fill out the username
+              </mat-error>
+              <mat-error *ngIf="loginForm.controls.username.errors?.minlength && loginForm.controls.username.touched">
+                Username must be at least 3 characters
+              </mat-error>
+            </mat-form-field>
+            <!-- <input type="text" formControlName="username"> -->
+          </div>
+        
+          <div>
+            <mat-form-field>
+              <!-- <p>Password</p> -->
+              <input matInput placeholder="Password" type="password" formControlName="password">
+              <mat-error *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.dirty">
+                You must fill out the password
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+      <!-- Dont do this. Disabling a button is ok but only with user feedback! -->
                 
-                <mat-card-subtitle>I want to register instead</mat-card-subtitle>
-                <button type="button" mat-button>Register as a sitter</button>
-                <button type="button" mat-button>Register as a baby</button>
-              </mat-card-actions>
-            </mat-card>
-      
+            </mat-card-content>
+            <mat-card-actions>
+              <mat-divider></mat-divider>
+              
+              <mat-card-subtitle>I want to register instead</mat-card-subtitle>
+              <button type="button" mat-button>Register as a sitter</button>
+              <button type="button" mat-button>Register as a baby</button>
+            </mat-card-actions>
+          </mat-card>
+    
       </form>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
