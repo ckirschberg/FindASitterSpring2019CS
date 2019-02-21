@@ -1,8 +1,14 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
   <div>
-    <p>Username</p>
-    <input type="text" formControlName="username">
+
+    <!-- <p>Username</p> -->
+    
+     <mat-form-field> <!-- Added -->
+      <input matInput type="text" formControlName="username" placeholder="Username">
+    </mat-form-field> <!-- Added -->
+    
+    
     <div *ngIf="loginForm.controls.username.errors?.required && loginForm.controls.username.touched">
       You must fill out the username
     </div>
@@ -12,8 +18,10 @@
   </div>
 
   <div>
-    <p>Password</p>
-    <input type="password" formControlName="password">
+    <!-- <p>Password</p> -->
+    <mat-form-field>
+      <input matInput type="password" formControlName="password" placeholder="Password">
+    </mat-form-field>
     <div *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.dirty">
       You must fill out the password
     </div>
