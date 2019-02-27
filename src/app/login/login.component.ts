@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {MatSnackBar} from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login', // name of component
@@ -8,8 +10,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  
-  constructor(private fb: FormBuilder) {
+
+  // DI - Dependency injection
+  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router) {
   }
 
   ngOnInit() {
@@ -22,13 +25,20 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() : void {
+    this.snackBar.open('One second, logging in..', 'Close', {
+      duration: 2000,
+    });
+
     console.log(this.loginForm);
 
     if (this.loginForm.valid) {
       // Send the data to the server to verify the user login
+      // navigate after successful login.
+      this.router.navigate(['display-quiz']);
     }
     else {
       // Show error message or something else.
+
     }
 
   }
