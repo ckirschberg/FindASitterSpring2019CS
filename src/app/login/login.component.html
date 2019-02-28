@@ -45,8 +45,7 @@
               <mat-divider></mat-divider>
               
               <mat-card-subtitle>I want to register instead</mat-card-subtitle>
-              <button type="button" mat-button>Register as a sitter</button>
-              <button type="button" mat-button>Register as a baby</button>
+              <button type="button" mat-button>Register</button>
             </mat-card-actions>
           </mat-card>
     
@@ -55,3 +54,7 @@
   <mat-grid-tile [colspan]="1" [rowspan]="1"></mat-grid-tile>
 
 </mat-grid-list>
+
+<button routerLink="josef">Go to Josef (7 points)</button>
+<button routerLink="morten">Go to Morten (0 Morten)</button>
+<router-outlet></router-outlet>
