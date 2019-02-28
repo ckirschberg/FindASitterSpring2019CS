@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       // Send the data to the server to verify the user login
       // navigate after successful login.
-      this.router.navigate(['display-quiz']);
+      this.router.navigate(['portal/display-quiz']);
     }
     else {
       // Show error message or something else.

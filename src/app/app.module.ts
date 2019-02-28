@@ -23,6 +23,8 @@ import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MortenComponent } from './morten/morten.component';
 import { JosefComponent } from './josef/josef.component';
+import { HomeComponent } from './home/home.component';
+import { PortalComponent } from './portal/portal.component';
 
 
 
@@ -36,7 +38,9 @@ import { JosefComponent } from './josef/josef.component';
     ContactComponent,
     PageNotFoundComponent,
     MortenComponent,
-    JosefComponent
+    JosefComponent,
+    HomeComponent,
+    PortalComponent
   ],
   imports: [
     BrowserModule,

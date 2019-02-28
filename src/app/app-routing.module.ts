@@ -8,18 +8,26 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { DisplayQuizComponent } from './display-quiz/display-quiz.component';
 import { MortenComponent } from './morten/morten.component';
 import { JosefComponent } from './josef/josef.component';
+import { HomeComponent } from './home/home.component';
+import { PortalComponent } from './portal/portal.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' }, // if baseUrl => go to login
+  { path: '', redirectTo: 'home/login', pathMatch: 'full' }, // if baseUrl => go to login
 
-  {path: 'about', component: AboutComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: 'login', component: LoginComponent, children: [
-    { path: 'morten', component: MortenComponent },
-    { path: 'josef', component: JosefComponent }
+  {path: 'home', component: HomeComponent, children: [
+    {path: 'about', component: AboutComponent},
+    {path: 'contact', component: ContactComponent},
+    {path: 'login', component: LoginComponent, children: [
+      { path: 'morten', component: MortenComponent },
+      { path: 'josef', component: JosefComponent }
+    ]},
+    {path: 'register', component: RegisterComponent}
   ]},
-  {path: 'register', component: RegisterComponent},
-  {path: 'display-quiz', component:DisplayQuizComponent},
+  
+  {path: 'portal', component:PortalComponent, children: [
+    {path: 'display-quiz', component:DisplayQuizComponent},  
+  ]},
+  
 
   { path: '**', component: PageNotFoundComponent } // wildcard - if no routes matched, display this
  ];
