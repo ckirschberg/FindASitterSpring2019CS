@@ -1,3 +1,4 @@
+import { AuthService } from './../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
@@ -12,7 +13,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
   // DI - Dependency injection
-  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private router: Router) {
+  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, 
+    private router: Router, private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -29,12 +31,26 @@ export class LoginComponent implements OnInit {
       duration: 2000,
     });
 
+    
     console.log(this.loginForm);
 
     if (this.loginForm.valid) {
       // Send the data to the server to verify the user login
       // navigate after successful login.
-      this.router.navigate(['portal/display-quiz']);
+      if (this.loginForm.value.username === 'admin') {
+        //log in as admin
+        
+      }
+  
+    
+      console.log("First");
+      this.authService.login().subscribe(result => {
+        console.log("Third");
+        this.router.navigate(['portal/display-quiz']);  
+      });
+
+      console.log("Second");
+      
     }
     else {
       // Show error message or something else.

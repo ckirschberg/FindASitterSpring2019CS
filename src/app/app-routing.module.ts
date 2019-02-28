@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
@@ -24,7 +25,7 @@ const routes: Routes = [
     {path: 'register', component: RegisterComponent}
   ]},
   
-  {path: 'portal', component:PortalComponent, children: [
+  {path: 'portal', component:PortalComponent, canActivate: [AuthGuard], children: [
     {path: 'display-quiz', component:DisplayQuizComponent},  
   ]},
   
