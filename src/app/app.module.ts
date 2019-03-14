@@ -26,8 +26,6 @@ import { JosefComponent } from './josef/josef.component';
 import { HomeComponent } from './home/home.component';
 import { PortalComponent } from './portal/portal.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +38,7 @@ import { PortalComponent } from './portal/portal.component';
     MortenComponent,
     JosefComponent,
     HomeComponent,
-    PortalComponent
+    PortalComponent,
   ],
   imports: [
     BrowserModule,
