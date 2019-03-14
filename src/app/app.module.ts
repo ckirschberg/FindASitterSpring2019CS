@@ -25,6 +25,7 @@ import { MortenComponent } from './morten/morten.component';
 import { JosefComponent } from './josef/josef.component';
 import { HomeComponent } from './home/home.component';
 import { PortalComponent } from './portal/portal.component';
+import { DisplayQuizzesComponent } from './display-quizzes/display-quizzes.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { PortalComponent } from './portal/portal.component';
     JosefComponent,
     HomeComponent,
     PortalComponent,
+    DisplayQuizzesComponent,
   ],
   imports: [
     BrowserModule,
