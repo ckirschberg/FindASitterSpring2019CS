@@ -13,7 +13,14 @@ export class DisplayQuizComponent implements OnInit {
   constructor(private tempData: TempDataService) { }
 
   ngOnInit() {
-    this.quiz = this.tempData.getQuiz();
+    // this.quiz = this.tempData.getQuiz();
+
+    // Get the id from the url
+    const id = '1';
+    // Find the quiz object based on id
+    this.quiz = this.tempData.findQuiz(id);
+    // Load the quiz in the html
+
   }
 
 }

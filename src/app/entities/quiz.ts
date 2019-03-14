@@ -1,7 +1,9 @@
+import { User } from './user';
+
 export class Quiz {
   _id: string;
   visible: boolean;
-  userId: string;
+  user: User; // This might be old (not updated) data.
   title: string;
   created?: Date; // ? = optional field
   questions: Question[]; 

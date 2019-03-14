@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Quiz } from '../entities/quiz';
+import { GeneratedFile } from '@angular/compiler';
+import { getRenderedText } from '@angular/core/src/render3';
+import { Gender } from '../entities/user';
 
 @Injectable({
   providedIn: 'root'
@@ -8,10 +11,18 @@ export class TempDataService {
 
   constructor() { }
 
+  findQuiz(searchForId: string) : Quiz {
+    return this.getQuizzes().find(quiz => quiz._id === searchForId);
+
+  }
+
   getQuizzes() : Quiz[] {
     return [
       { 
-        _id: '1', visible: false, userId: '1', title: 'Dogs', 
+        _id: '1', visible: false, user: {
+          _id:'1',username: 'mikkel86', email: 'mik@mikkel.dk', gender: Gender.MALE,
+          birthDate: new Date(1986,0,1)
+        }, title: 'Dogs', created: new Date(2019,2,1),
         questions: [
           {title: 'How many feet does a puddle have?', 
             options: [
@@ -30,7 +41,10 @@ export class TempDataService {
             ]}] 
       },
       {
-        _id: '2', visible: true, userId: '1', title: 'Veroniques quiz',
+        _id: '2', visible: true, user: {
+          _id:'1',username: 'veronique', email: 'vero@veronique.dk', gender: Gender.FEMALE,
+          birthDate: new Date(1994,0,1)
+        }, title: 'Veroniques quiz', created: new Date(2019, 3, 19),
         questions: [ 
           { title: 'How old are Veronique',
           options: [
@@ -47,7 +61,10 @@ export class TempDataService {
 
   getQuiz() : Quiz {
     return { 
-      _id: '1', visible: false, userId: '1', title: 'Dogs', 
+      _id: '1', visible: false, user: {
+        _id:'1',username: 'veronique', email: 'vero@veronique.dk', gender: Gender.FEMALE,
+        birthDate: new Date(1994,0,1)
+      }, title: 'Dogs', 
       questions: [
         {title: 'How many feet does a puddle have?', 
           options: [
