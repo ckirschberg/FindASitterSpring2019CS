@@ -13,7 +13,7 @@ export class DisplayQuizzesComponent implements OnInit {
   constructor(private data: TempDataService) { }
 
   ngOnInit() {
-    this.quizzes = this.data.getQuizzes();
+    this.quizzes = this.data.quizzes;
   }
 
 }

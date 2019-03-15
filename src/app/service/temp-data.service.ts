@@ -8,8 +8,16 @@ import { Gender } from '../entities/user';
   providedIn: 'root'
 })
 export class TempDataService {
+  quizzes: Quiz[];
 
-  constructor() { }
+  constructor() {
+    this.quizzes = this.getQuizzes();  
+  }
+
+  saveQuiz(quiz: Quiz): void {
+    this.quizzes.push(quiz);
+    console.log(this.quizzes);
+  }
 
   findQuiz(searchForId: string) : Quiz {
     return this.getQuizzes().find(quiz => quiz._id === searchForId);

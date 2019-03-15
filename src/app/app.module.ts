@@ -26,6 +26,8 @@ import { JosefComponent } from './josef/josef.component';
 import { HomeComponent } from './home/home.component';
 import { PortalComponent } from './portal/portal.component';
 import { DisplayQuizzesComponent } from './display-quizzes/display-quizzes.component';
+import { CreateQuizComponent } from './create-quiz/create-quiz.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -41,13 +43,14 @@ import { DisplayQuizzesComponent } from './display-quizzes/display-quizzes.compo
     HomeComponent,
     PortalComponent,
     DisplayQuizzesComponent,
+    CreateQuizComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatGridListModule, MatMenuModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSnackBarModule, MatCardModule, MatDividerModule
+    MatGridListModule, MatMenuModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSnackBarModule, MatCardModule, MatDividerModule, MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,6 +12,7 @@ import { JosefComponent } from './josef/josef.component';
 import { HomeComponent } from './home/home.component';
 import { PortalComponent } from './portal/portal.component';
 import { DisplayQuizzesComponent } from './display-quizzes/display-quizzes.component';
+import { CreateQuizComponent } from './create-quiz/create-quiz.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home/login', pathMatch: 'full' }, // if baseUrl => go to login
@@ -28,6 +29,7 @@ const routes: Routes = [
   
   {path: 'portal', component:PortalComponent, /*canActivate: [AuthGuard],*/ children: [
     {path: 'display-quiz/:id', component:DisplayQuizComponent},  
+    {path: 'create-quiz', component:CreateQuizComponent},  
     {path: 'display-quizzes', component:DisplayQuizzesComponent},  
   ]},
   
