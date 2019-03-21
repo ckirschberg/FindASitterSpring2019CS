@@ -14,7 +14,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { MatSnackBarModule } from '@angular/material';
+import { MatSnackBarModule, MatCheckboxModule } from '@angular/material';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import { DisplayQuizComponent } from './display-quiz/display-quiz.component';
@@ -50,7 +50,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatGridListModule, MatMenuModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSnackBarModule, MatCardModule, MatDividerModule, MatExpansionModule
+    MatGridListModule, MatMenuModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSnackBarModule, MatCardModule, MatDividerModule, MatExpansionModule, MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
