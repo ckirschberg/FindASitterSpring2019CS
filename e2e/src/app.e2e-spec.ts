@@ -14,9 +14,20 @@ describe('workspace-project App', () => {
   it('1.0: Verify that I can go to the login component', () => {
     browser.get('home/login');
     let loginText = element(by.id('login')).getText();
+
     expect(loginText).toEqual("Login");
+  });
+
+  it('login by filling out username and password, landing page afterwards', () => {
+    element(by.id('username')).sendKeys('admin');
+    element(by.id('password')).sendKeys('admin');
     
-  })
+    element(by.id('submitLogin')).click();
+    
+    // Cleaner way to check that you are in the right place.
+    expect(browser.getCurrentUrl()).toContain('/portal/display-quizzes');
+
+  });
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser

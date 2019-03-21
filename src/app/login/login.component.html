@@ -15,7 +15,7 @@
           <div>
             <mat-form-field>
               <!-- <p>Username</p> -->
-              <input matInput placeholder="Username" formControlName="username">
+              <input matInput id="username" placeholder="Username" formControlName="username">
               
               <mat-error *ngIf="loginForm.controls.username.errors?.required && loginForm.controls.username.touched">
                 You must fill out the username
@@ -30,14 +30,14 @@
           <div>
             <mat-form-field>
               <!-- <p>Password</p> -->
-              <input matInput placeholder="Password" type="password" formControlName="password">
+              <input matInput id="password" placeholder="Password" type="password" formControlName="password">
               <mat-error *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.dirty">
                 You must fill out the password
               </mat-error>
             </mat-form-field>
           </div>
 
-          <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+          <button  mat-raised-button color="primary" id="submitLogin" type="submit" [disabled]="!loginForm.valid">Login</button>
       <!-- Dont do this. Disabling a button is ok but only with user feedback! -->
                 
             </mat-card-content>
