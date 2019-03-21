@@ -20,8 +20,7 @@ export class TempDataService {
   }
 
   findQuiz(searchForId: string) : Quiz {
-    return this.getQuizzes().find(quiz => quiz._id === searchForId);
-
+    return this.quizzes.find(quiz => quiz._id === searchForId);
   }
 
   getQuizzes() : Quiz[] {
