@@ -16,4 +16,9 @@ export class DisplayQuizzesComponent implements OnInit {
     this.quizzes = this.data.quizzes;
   }
 
+  handleQuizClicked(quiz: Quiz) : void {
+    // Do whatever I want to handle the event.
+    
+    console.log(quiz);
+  }
 }

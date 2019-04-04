@@ -28,6 +28,7 @@ import { PortalComponent } from './portal/portal.component';
 import { DisplayQuizzesComponent } from './display-quizzes/display-quizzes.component';
 import { CreateQuizComponent } from './create-quiz/create-quiz.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { QuizComponent } from './quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     PortalComponent,
     DisplayQuizzesComponent,
     CreateQuizComponent,
+    QuizComponent,
   ],
   imports: [
     BrowserModule,
