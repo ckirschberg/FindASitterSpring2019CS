@@ -29,6 +29,11 @@ import { DisplayQuizzesComponent } from './display-quizzes/display-quizzes.compo
 import { CreateQuizComponent } from './create-quiz/create-quiz.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { QuizComponent } from './quiz/quiz.component';
+import { AppState } from './store';
+import { NgRedux, NgReduxModule } from '@angular-redux/store';
+import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
+
+import { rootReducer } from './store';
 
 @NgModule({
   declarations: [
@@ -52,9 +57,21 @@ import { QuizComponent } from './quiz/quiz.component';
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgReduxModule,   NgReduxRouterModule.forRoot(),
     MatGridListModule, MatMenuModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSnackBarModule, MatCardModule, MatDividerModule, MatExpansionModule, MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private ngRedux: NgRedux<AppState>,
+    // private devTool: DevToolsExtension,
+    private ngReduxRouter: NgReduxRouter,) {
+   
+    this.ngRedux.configureStore(
+      rootReducer, {});
+ 
+      ngReduxRouter.initialize(/* args */);   
+  }
+ 
+ }

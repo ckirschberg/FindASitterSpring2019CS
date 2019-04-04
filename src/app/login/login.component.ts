@@ -1,3 +1,4 @@
+import { QuizActions } from './../quiz.actions';
 import { AuthService } from './../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
 
   // DI - Dependency injection
   constructor(private fb: FormBuilder, private snackBar: MatSnackBar, 
-    private router: Router, private authService: AuthService) {
+    private router: Router, private authService: AuthService,
+    private quizActions: QuizActions) {
   }
 
   ngOnInit() {
@@ -32,9 +34,16 @@ export class LoginComponent implements OnInit {
     });
 
     
+
+    
     console.log(this.loginForm);
 
     if (this.loginForm.valid) {
+      // test
+      this.quizActions.setLoggedIn(true);
+      
+      
+      
       // Send the data to the server to verify the user login
       // navigate after successful login.
       if (this.loginForm.value.username === 'admin') {

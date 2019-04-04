@@ -7,7 +7,8 @@
   <!-- This fills the remaining space of the current row -->
   <span class="example-fill-remaining-space"></span>
 
-  <button mat-button routerLink="login">Login</button>
+  <button mat-button *ngIf="!loggedIn" routerLink="login">Login</button>
+  <button mat-button *ngIf="loggedIn" (click)="onLogoutClick()">Logout</button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
