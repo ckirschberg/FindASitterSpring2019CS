@@ -13,11 +13,11 @@ export function quizReducer(state: QuizState = INITIAL_STATE, action:any) {
    // return a new state object.
    
    // Javascript spread operator (...)
-    state.quizzes.push(action.payload);
-    return state;
+    // state.quizzes.push(action.payload);
+    // return state;
     // newState.push(action.payload);
 
-  //  return tassign(state, { quizzes: [...state.quizzes, action.payload] });
+   return tassign(state, { quizzes: [...state.quizzes, action.payload] });
 
 
 
