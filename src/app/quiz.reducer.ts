@@ -9,6 +9,8 @@ export function quizReducer(state: QuizState = INITIAL_STATE, action:any) {
   case QuizActions.LOG_IN:
     
     // state.isLoggedIn = action.payload; // No No! You cannot modify state in Redux!
+    // return state;
+
     // Make a copy of the state
     // Change isLoggedIn variable in the copy.
     console.log(action);

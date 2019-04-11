@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.ngRedux.select(state => state.quizzes).subscribe(res => {
-      this.loggedIn = res.isLoggedIn;    
+      // When notified
+      this.loggedIn = res.isLoggedIn; 
     });
  
   }
