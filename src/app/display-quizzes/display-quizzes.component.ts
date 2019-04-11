@@ -1,6 +1,8 @@
 import { TempDataService } from './../service/temp-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Quiz } from '../entities/quiz';
+import { AppState } from '../store';
+import { NgRedux } from '@angular-redux/store';
 
 @Component({
   selector: 'app-display-quizzes',
@@ -10,10 +12,14 @@ import { Quiz } from '../entities/quiz';
 export class DisplayQuizzesComponent implements OnInit {
   quizzes: Quiz[];
 
-  constructor(private data: TempDataService) { }
+  constructor(private ngRedux: NgRedux<AppState>) { }
 
   ngOnInit() {
-    this.quizzes = this.data.quizzes;
+    // Subscribe to the redux store (quizzes).
+    this.ngRedux.select(state => state.quizzes).subscribe(result => {
+      this.quizzes = result.quizzes;
+    });
+    // this.quizzes = this.data.quizzes;
   }
 
   handleQuizClicked(quiz: Quiz) : void {
