@@ -30,7 +30,7 @@ import { CreateQuizComponent } from './create-quiz/create-quiz.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { QuizComponent } from './quiz/quiz.component';
 import { AppState } from './store';
-import { NgRedux, NgReduxModule } from '@angular-redux/store';
+import { NgRedux, NgReduxModule, DevToolsExtension } from '@angular-redux/store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 
 import { rootReducer } from './store';
@@ -65,13 +65,17 @@ import { rootReducer } from './store';
 })
 export class AppModule {
   constructor(private ngRedux: NgRedux<AppState>,
-    // private devTool: DevToolsExtension,
+    private devTool: DevToolsExtension,
     private ngReduxRouter: NgReduxRouter,) {
    
-    this.ngRedux.configureStore(
-      rootReducer, {});
+    this.ngRedux.configureStore(rootReducer, {});
+     ngReduxRouter.initialize(/* args */);   
+
+
+    // this.ngRedux.configureStore(rootReducer, {}, [],[ devTool.isEnabled() ? devTool.enhancer() : f => f]);
+    //   ngReduxRouter.initialize(/* args */);  
  
-      ngReduxRouter.initialize(/* args */);   
+ 
   }
  
  }
