@@ -7,7 +7,7 @@ export class Quiz {
   title: string;
   created?: Date; // ? = optional field
   questions: Question[]; 
-  ratings: Rating[];
+  ratings?: Rating[];
 }
 export class Question {
   title: string;

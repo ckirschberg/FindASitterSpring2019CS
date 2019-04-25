@@ -24,7 +24,20 @@ export function quizReducer(state: QuizState = INITIAL_STATE, action:any) {
     // action.payload.rating
     // action.payload.quizId
     // How to add an object to an array within an object in an array.
-   
+
+    //Perhaps this works? 30% chance of working...
+    let quizToUpdate = state.quizzes.find(quiz => quiz._id === action.payload.quizId);
+    let pos = state.quizzes.findIndex(quiz => quiz._id === action.payload.quizId);
+
+    let ratingArr = [...quizToUpdate.ratings, action.payload.quiz];
+    let quizArray = [...state.quizzes.slice(0,pos), quizToUpdate, ...state.quizzes.slice(pos+1)];
+    quizArray[pos].ratings = ratingArr;
+
+    console.log("ratingArr", ratingArr);
+    console.log("quizArray", quizArray);
+
+    return tassign(state, {quizzes: quizArray});
+    
    case QuizActions.UPDATE_QUIZ:
     // action.payload: new quiz object
     // How to replace an object in an array without mutating state.
@@ -34,7 +47,8 @@ export function quizReducer(state: QuizState = INITIAL_STATE, action:any) {
     // action.payload: id of the quiz
     // How to create a new array with a missing object from another array.
     // const newArray = state.quizzes.filter(x => x._id !== action.payload);
-    return 
+    
+    return tassign(state, {quizzes: state.quizzes.filter(quiz => quiz._id !== action.payload)});
 
 
   case QuizActions.LOG_IN:
