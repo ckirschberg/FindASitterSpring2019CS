@@ -17,15 +17,19 @@ describe('quiz reducer tests', () => {
   });
 
   it('should create new ', () => {
+    // Arrange - Act - Assert
+
+    // Arrange
     let startState = {quizzes: []} as QuizState;
     deepFreeze(startState);
-
     let quiz = { title: 'Test quiz', questions: [] } as Quiz;
     let actionObj = { type: QuizActions.CREATE_QUIZ, payload: quiz };
+    
+    // Act
     let newStateObj = quizReducer(startState, actionObj);
     
+    // Assert (expect)
     expect(newStateObj.quizzes.length).toBe(1);
     expect(newStateObj.quizzes[0].title).toBe('Test quiz');
   });
-
-})
+});

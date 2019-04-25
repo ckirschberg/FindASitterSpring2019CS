@@ -7,6 +7,7 @@ export class Quiz {
   title: string;
   created?: Date; // ? = optional field
   questions: Question[]; 
+  ratings: Rating[];
 }
 export class Question {
   title: string;
@@ -15,4 +16,11 @@ export class Question {
 export class Option {
   answer: string;
   correct: boolean;
+}
+export class Rating {
+  grade: number;
+  user: User;
+  // timestamp: Date;
+  // title: string;
+  // message: string;
 }

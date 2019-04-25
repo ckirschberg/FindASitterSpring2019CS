@@ -19,6 +19,22 @@ export function quizReducer(state: QuizState = INITIAL_STATE, action:any) {
 
    return tassign(state, { quizzes: [...state.quizzes, action.payload] });
 
+   case QuizActions.CREATE_RATING:
+    // action.payload: rating object, id of quiz
+    // action.payload.rating
+    // action.payload.quizId
+    // How to add an object to an array within an object in an array.
+   
+   case QuizActions.UPDATE_QUIZ:
+    // action.payload: new quiz object
+    // How to replace an object in an array without mutating state.
+    return 
+
+   case QuizActions.DELETE_QUIZ:
+    // action.payload: id of the quiz
+    // How to create a new array with a missing object from another array.
+    // const newArray = state.quizzes.filter(x => x._id !== action.payload);
+    return 
 
 
   case QuizActions.LOG_IN:

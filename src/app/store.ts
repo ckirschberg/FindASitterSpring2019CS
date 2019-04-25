@@ -12,6 +12,5 @@ export class AppState {
 }
 export const rootReducer = combineReducers<AppState>({
   quizzes: quizReducer,
-
-// router: routerReducer
-});
+  router: routerReducer
+} as any);
