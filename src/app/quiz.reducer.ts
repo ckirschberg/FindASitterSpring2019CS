@@ -25,7 +25,7 @@ export function quizReducer(state: QuizState = INITIAL_STATE, action:any) {
     // action.payload.quizId
     // How to add an object to an array within an object in an array.
 
-    //Perhaps this works? 30% chance of working...
+    // //Perhaps this works? 30% chance of working...
     let quizToUpdate = state.quizzes.find(quiz => quiz._id === action.payload.quizId);
     let pos = state.quizzes.findIndex(quiz => quiz._id === action.payload.quizId);
 

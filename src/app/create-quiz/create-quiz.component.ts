@@ -1,3 +1,4 @@
+import { QuizApiService } from './../quiz-api.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { TempDataService } from '../service/temp-data.service';
@@ -15,7 +16,7 @@ export class CreateQuizComponent implements OnInit {
   createQuiz: FormGroup;
 
   constructor(private fb: FormBuilder, private data: TempDataService,
-    private router: Router, private quizActions: QuizActions) { }
+    private router: Router, private quizActions: QuizActions, private quizApi: QuizApiService) { }
 
   saveQuiz() {
     // console.log(this.createQuiz.value);
@@ -31,9 +32,22 @@ export class CreateQuizComponent implements OnInit {
       birthDate: undefined 
     };
 
-    this.quizActions.createQuiz(quiz);
+    console.log("1");
+    this.quizApi.createQuiz(quiz).subscribe(quizFromWs => {
+      console.log(quizFromWs);
+      console.log("3");
+      this.quizActions.createQuiz(quizFromWs);
+      this.router.navigate(['/portal/display-quizzes']);
+    }, error => {
+      // Write some code for if the ws breaks.
+      console.log("something bad happened", error);
+      // this.quizActions.createQuizFailed(error);
+    });
+    console.log("2");
+
+    
     // this.data.saveQuiz(quiz);
-    this.router.navigate(['/portal/display-quizzes']);
+    
     
   }
 

@@ -6,6 +6,7 @@ import { Quiz } from './entities/quiz';
 export class QuizState {
   isLoggedIn: boolean;
   quizzes: Quiz[];
+  // errorMessage: string;
 }
 export class AppState {
   quizzes?: QuizState;
