@@ -1,3 +1,7 @@
+<div *ngIf="isLoading">
+  Please wait, we are loading the quizzes
+</div>
+
 <div *ngFor="let quiz of quizzes">
 
   <app-quiz

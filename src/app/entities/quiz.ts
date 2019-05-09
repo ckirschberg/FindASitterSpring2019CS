@@ -8,6 +8,7 @@ export class Quiz {
   created?: Date; // ? = optional field
   questions: Question[]; 
   ratings?: Rating[];
+  customerId?: string;
 }
 export class Question {
   title: string;

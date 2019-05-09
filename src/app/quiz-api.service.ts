@@ -12,11 +12,12 @@ export class QuizApiService {
   constructor(private http: HttpClient) { }
   
   createQuiz(quiz: Quiz) : Observable<any> {
+    quiz.customerId = 'chrk3';
     return this.http.post(this.baseUrl, quiz);
   }
 
   getAllQuizzes(): Observable<Quiz[]> {
-    return undefined;
+    return this.http.get<Quiz[]>(this.baseUrl);
   }
 
   updateQuiz(quiz: Quiz) : Observable<any> {

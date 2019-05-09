@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Quiz } from '../entities/quiz';
 import { AppState } from '../store';
 import { NgRedux } from '@angular-redux/store';
+import { QuizActions } from '../quiz.actions';
 
 @Component({
   selector: 'app-display-quizzes',
@@ -11,14 +12,18 @@ import { NgRedux } from '@angular-redux/store';
 })
 export class DisplayQuizzesComponent implements OnInit {
   quizzes: Quiz[];
+  isLoading: boolean;
 
-  constructor(private ngRedux: NgRedux<AppState>) { }
+  constructor(private ngRedux: NgRedux<AppState>, private quizActions: QuizActions) { }
 
   ngOnInit() {
     // Subscribe to the redux store (quizzes).
     this.ngRedux.select(state => state.quizzes).subscribe(result => {
       this.quizzes = result.quizzes;
+      this.isLoading = result.isLoading;
     });
+
+    this.quizActions.getQuizzes();
     // this.quizzes = this.data.quizzes;
   }
 
