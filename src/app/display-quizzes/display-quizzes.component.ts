@@ -13,6 +13,7 @@ import { QuizActions } from '../quiz.actions';
 export class DisplayQuizzesComponent implements OnInit {
   quizzes: Quiz[];
   isLoading: boolean;
+  userSearch: string;
 
   constructor(private ngRedux: NgRedux<AppState>, private quizActions: QuizActions) { }
 
@@ -29,7 +30,8 @@ export class DisplayQuizzesComponent implements OnInit {
 
   handleQuizClicked(quiz: Quiz) : void {
     // Do whatever I want to handle the event.
-    
+    console.log(this.userSearch);
+    // this.userSearch = 'Hi there'
     console.log(quiz);
   }
 }

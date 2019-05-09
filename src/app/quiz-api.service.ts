@@ -13,6 +13,7 @@ export class QuizApiService {
   
   createQuiz(quiz: Quiz) : Observable<any> {
     quiz.customerId = 'chrk3';
+    quiz.created = new Date();
     return this.http.post(this.baseUrl, quiz);
   }
 

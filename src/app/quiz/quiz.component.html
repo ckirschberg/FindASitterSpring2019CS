@@ -1,8 +1,8 @@
 <mat-card class="example-card" (click)="emitQuizClicked()">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{quizInput.title}}</mat-card-title>
-    <mat-card-subtitle>{{quizInput.created}}</mat-card-subtitle>
+    <mat-card-title>{{quizInput.title | uppercase}}</mat-card-title>
+    <mat-card-subtitle>{{quizInput.created | date: 'dd/MM/yyyy' | lowercase }}</mat-card-subtitle>
   </mat-card-header>
   <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
   <mat-card-subtitle>Created by: {{quizInput.user.username}}</mat-card-subtitle>
@@ -13,3 +13,6 @@
     <button mat-button routerLink="../display-quiz/{{quizInput._id}}">Start Quiz</button>
   </mat-card-actions>
 </mat-card>
+
+{{ 0.743 | percent }}
+{{ 132 | currency }}
