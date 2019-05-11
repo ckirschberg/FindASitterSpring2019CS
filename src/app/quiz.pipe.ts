@@ -13,6 +13,7 @@ export class QuizPipe implements PipeTransform {
       return quizzes;
     }
     // Write code that only returns the quiz objects that match the search
+    // quizzes.forEach(quiz => console.log(quiz.created));
 
     return quizzes.filter(quiz => quiz.title.indexOf(search) !== -1);
   }
