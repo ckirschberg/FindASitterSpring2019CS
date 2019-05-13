@@ -36,6 +36,7 @@ import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 
 import { rootReducer } from './store';
 import { QuizPipe } from './quiz.pipe';
+import { httpInterceptorProviders } from './http-interceptors';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,7 @@ import { QuizPipe } from './quiz.pipe';
     NgReduxModule,   NgReduxRouterModule.forRoot(),
     MatGridListModule, MatMenuModule, MatIconModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatSnackBarModule, MatCardModule, MatDividerModule, MatExpansionModule, MatCheckboxModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule {
